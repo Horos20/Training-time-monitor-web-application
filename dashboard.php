@@ -111,27 +111,7 @@
    </div>
  </div>
 
-
-
- <script> 
-
- function openNav(){
-     
-     document.getElementById("side-menu").style.width = "560px";
-    
- }
- 
- function closeNav(){
-     
-     document.getElementById("side-menu").style.width = "0";
-    
- }
- 
- 
- 
- 
- 
- </script>     
+<script src='dashboard.js'></script>   
       
 </body>    
 </html>
