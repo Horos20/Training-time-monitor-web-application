@@ -4,7 +4,20 @@
   <title> Dashboard </title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel='stylesheet' href='dashboard.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   
+  <script>
+    window.onload = function log() {
+    fetch('entries.php', {
+         method:'GET'
+    }).then(response => {
+          return response.text();
+    }).then(response => {
+          document.getElementById('log_results').innerHTML = response;
+    });
+}
+
+  </script>
 </head>
 <header>
     
@@ -18,26 +31,28 @@
             <form action="" method="POST" id="data">
                 
                 <label> Date * </label>
-                <input>
+                <input name="date">
                 
                 <label> Type * </label>
-                <input>
+                <input name="type">
                 
                 <label> Category * </label>
-                <input>
+                <input name="category">
                 
                 <label> Time * </label>
-                <input>
+                <input name="time">
                 
                 <label> Notes </label>
-                <input>
+                <input name="notes">
                 
                 <label> Tags * </label>
-                <input>
+                <input name="tags">
+
+                <input id="lisa" class="btn btn-primary" type='submit' name="addE"> ADD ENTRY </input>
                 
             </form>
             
-            <button id="lisa" class="btn btn-primary"> ADD ENTRY </button>
+            
          
         </div>
      </div>
@@ -45,6 +60,25 @@
     
 </header>
 <body>
+<?php 
+    
+    require_once "phpmysql.php";
+
+    if (isset($_POST["addE"])){
+        
+     $date = $_POST["date"];
+     $type = $_POST["type"];
+     $category = $_POST["category"];
+     $time = $_POST["time"];
+     $notes = $_POST["notes"];
+     $tags = $_POST["tags"];
+        
+       $insert_query = "INSERT INTO ENTRIES(date, type, category, spent_time, notes, tags)VALUES('".$date."', '".$type."', '".$category."', '".$time."' , '".$notes."', '".$tags."')";
+
+       $i = $conn->query($insert_query);
+    }
+    
+    ?>
     
   <section>
     
@@ -106,12 +140,16 @@
      <div class="col-8">
                   
      <!-- tabel -->
+      <div id='log_results'></div>
+
                   
      </div>
    </div>
  </div>
 
-<script src='dashboard.js'></script>   
+
+<script src='dashboard.js'></script>
+
       
 </body>    
 </html>
