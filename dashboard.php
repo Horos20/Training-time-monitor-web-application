@@ -55,7 +55,7 @@
            <div class="col-8"></div>
             <div class="col-2 text-center">
                 <span class="align-items-center" style="padding-right: 40px; font-size: 20px; color: white"> Nimi </span> 
-             <button class="btn btn-primary"> SIGN OUT </button>
+             <button class="btn btn-primary" onclick="location.href = 'logout.php'"> SIGN OUT </button>
           </div>
         </div>
       
