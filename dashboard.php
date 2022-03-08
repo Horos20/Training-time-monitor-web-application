@@ -88,7 +88,7 @@
           </div>
            <div class="col-8"></div>
             <div class="col-2 text-center">
-                <span class="align-items-center" style="padding-right: 40px; font-size: 20px; color: white"> Nimi </span> 
+                <span class="align-items-center" style="padding-right: 40px; font-size: 20px; color: white"><?php echo $_SESSION['lastName']; ?></span> 
              <button class="btn btn-primary" onclick="location.href = 'logout.php'"> SIGN OUT </button>
           </div>
         </div>

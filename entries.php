@@ -10,7 +10,7 @@ $sql = "SELECT * FROM ENTRIES";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $tul1 = "<table style= 'border: 1px solid;'><tbody><tr><th>Id</th><th>Id</th><th>User_id</th><th>Date</th><th>Type</th><th>Category</th><th>Time</th><th>Notes</th><th>Tags</th></tr>";
+    $tul1 = "<table id='customers'><tbody><tr><th>Id</th><th>Id</th><th>User_id</th><th>Date</th><th>Type</th><th>Category</th><th>Time</th><th>Notes</th><th>Tags</th></tr>";
     // output data of each row
     $tul2;
     while($row = $result->fetch_assoc()) {
